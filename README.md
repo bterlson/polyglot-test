@@ -12,10 +12,18 @@ Only **mise** is required. It will install all runtimes and SDKs for you.
 curl https://mise.run | sh
 ```
 
-### Windows (PowerShell)
+### Windows
+
+Install with [Scoop](https://scoop.sh/) (recommended — automatically adds shims to PATH):
 
 ```powershell
-irm https://mise.run | iex
+scoop install mise
+```
+
+Or with winget:
+
+```powershell
+winget install jdx.mise
 ```
 
 ### Activate mise in your shell
@@ -32,9 +40,9 @@ eval "$(mise activate bash)"
 eval "$(mise activate zsh)"
 ```
 
-**PowerShell** (`$PROFILE`):
+**PowerShell** (`$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`):
 ```powershell
-mise activate pwsh | Out-String | Invoke-Expression
+(&mise activate pwsh) | Out-String | Invoke-Expression
 ```
 
 **Fish** (`~/.config/fish/config.fish`):
