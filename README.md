@@ -18,7 +18,31 @@ curl https://mise.run | sh
 irm https://mise.run | iex
 ```
 
-Then activate mise in your shell — see the [mise docs](https://mise.jdx.dev/getting-started.html) for details.
+### Activate mise in your shell
+
+Mise must be activated so it can swap tool versions automatically when you enter a project directory. Add **one** of these to your shell profile:
+
+**Bash** (`~/.bashrc`):
+```sh
+eval "$(mise activate bash)"
+```
+
+**Zsh** (`~/.zshrc`):
+```sh
+eval "$(mise activate zsh)"
+```
+
+**PowerShell** (`$PROFILE`):
+```powershell
+mise activate pwsh | Out-String | Invoke-Expression
+```
+
+**Fish** (`~/.config/fish/config.fish`):
+```fish
+mise activate fish | source
+```
+
+Then restart your terminal.
 
 ## Getting Started
 
