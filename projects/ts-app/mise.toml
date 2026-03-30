@@ -4,12 +4,15 @@ run = "npm install"
 
 [tasks.build]
 description = "Build the TypeScript project"
+depends = ["install"]
 run = "npx tsc"
 
 [tasks.test]
 description = "Test the TypeScript project"
+depends = ["install"]
 run = "npx tsx --test tests/*.test.ts"
 
 [tasks.run]
 description = "Run the TypeScript project"
+depends = ["install"]
 run = "npx tsx src/index.ts"

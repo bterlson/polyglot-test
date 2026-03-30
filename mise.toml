@@ -76,16 +76,19 @@ run = "npm install"
 [tasks."ts:build"]
 description = "Build the TypeScript project"
 dir = "projects/ts-app"
+depends = ["ts:install"]
 run = "npx tsc"
 
 [tasks."ts:test"]
 description = "Test the TypeScript project"
 dir = "projects/ts-app"
+depends = ["ts:install"]
 run = "npx tsx --test tests/*.test.ts"
 
 [tasks."ts:run"]
 description = "Run the TypeScript project"
 dir = "projects/ts-app"
+depends = ["ts:install"]
 run = "npx tsx src/index.ts"
 
 [tasks.build]
