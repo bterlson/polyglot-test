@@ -29,7 +29,7 @@ git clone <repo-url> && cd polyglot-test
 # 2. Trust the mise config and install all toolchains
 mise trust && mise install
 
-# 3. Install project dependencies (Python + TypeScript)
+# 3. Install all project dependencies
 mise run setup
 
 # 4. Build everything
