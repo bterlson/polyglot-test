@@ -1,0 +1,11 @@
+[tasks.build]
+description = "Build the Java project"
+run = "gradle build"
+
+[tasks.test]
+description = "Test the Java project"
+run = "gradle test"
+
+[tasks.run]
+description = "Run the Java project"
+run = "gradle run -q"

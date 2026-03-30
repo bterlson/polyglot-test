@@ -1,0 +1,11 @@
+[tasks.build]
+description = "Build the C# project"
+run = "dotnet build"
+
+[tasks.test]
+description = "Test the C# project"
+run = "dotnet test"
+
+[tasks.run]
+description = "Run the C# project"
+run = "dotnet run --project DotnetApp"

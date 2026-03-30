@@ -1,0 +1,5 @@
+export function greet(): string {
+  return "Hello from TypeScript!";
+}
+
+console.log(greet());

@@ -1,0 +1,11 @@
+[tasks.setup]
+description = "Install Python dependencies"
+run = "pip install -e '.[test]'"
+
+[tasks.test]
+description = "Test the Python project"
+run = "python -m pytest"
+
+[tasks.run]
+description = "Run the Python project"
+run = "python -m hello"

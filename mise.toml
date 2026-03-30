@@ -1,0 +1,92 @@
+[tools]
+dotnet = "10"
+java = "25"
+gradle = "latest"
+python = "3.13"
+node = "24"
+
+[env]
+_.path = ["./node_modules/.bin"]
+
+# ── Orchestration tasks ──────────────────────────────────────────────
+
+[tasks."dotnet:build"]
+description = "Build the C# project"
+dir = "projects/dotnet-app"
+run = "dotnet build"
+
+[tasks."dotnet:test"]
+description = "Test the C# project"
+dir = "projects/dotnet-app"
+run = "dotnet test"
+
+[tasks."dotnet:run"]
+description = "Run the C# project"
+dir = "projects/dotnet-app"
+run = "dotnet run --project DotnetApp"
+
+[tasks."java:build"]
+description = "Build the Java project"
+dir = "projects/java-app"
+run = "gradle build"
+
+[tasks."java:test"]
+description = "Test the Java project"
+dir = "projects/java-app"
+run = "gradle test"
+
+[tasks."java:run"]
+description = "Run the Java project"
+dir = "projects/java-app"
+run = "gradle run -q"
+
+[tasks."python:setup"]
+description = "Install Python dependencies"
+dir = "projects/python-app"
+run = "pip install -e '.[test]'"
+
+[tasks."python:test"]
+description = "Test the Python project"
+dir = "projects/python-app"
+run = "python -m pytest"
+
+[tasks."python:run"]
+description = "Run the Python project"
+dir = "projects/python-app"
+run = "python -m hello"
+
+[tasks."ts:install"]
+description = "Install TypeScript project dependencies"
+dir = "projects/ts-app"
+run = "npm install"
+
+[tasks."ts:build"]
+description = "Build the TypeScript project"
+dir = "projects/ts-app"
+run = "npx tsc"
+
+[tasks."ts:test"]
+description = "Test the TypeScript project"
+dir = "projects/ts-app"
+run = "npx tsx --test tests/*.test.ts"
+
+[tasks."ts:run"]
+description = "Run the TypeScript project"
+dir = "projects/ts-app"
+run = "npx tsx src/index.ts"
+
+[tasks.build]
+description = "Build all projects"
+depends = ["dotnet:build", "java:build", "ts:build"]
+
+[tasks.test]
+description = "Test all projects"
+depends = ["dotnet:test", "java:test", "python:test", "ts:test"]
+
+[tasks.run]
+description = "Run all projects"
+depends = ["dotnet:run", "java:run", "python:run", "ts:run"]
+
+[tasks.setup]
+description = "Install all dependencies"
+depends = ["python:setup", "ts:install"]
