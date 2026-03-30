@@ -10,6 +10,11 @@ _.path = ["./node_modules/.bin"]
 
 # ── Orchestration tasks ──────────────────────────────────────────────
 
+[tasks."dotnet:setup"]
+description = "Restore .NET dependencies"
+dir = "projects/dotnet-app"
+run = "dotnet restore"
+
 [tasks."dotnet:build"]
 description = "Build the C# project"
 dir = "projects/dotnet-app"
@@ -24,6 +29,11 @@ run = "dotnet test"
 description = "Run the C# project"
 dir = "projects/dotnet-app"
 run = "dotnet run --project DotnetApp"
+
+[tasks."java:setup"]
+description = "Download Java/Gradle dependencies"
+dir = "projects/java-app"
+run = "gradle dependencies --quiet"
 
 [tasks."java:build"]
 description = "Build the Java project"
@@ -89,4 +99,4 @@ depends = ["dotnet:run", "java:run", "python:run", "ts:run"]
 
 [tasks.setup]
 description = "Install all dependencies"
-depends = ["python:setup", "ts:install"]
+depends = ["dotnet:setup", "java:setup", "python:setup", "ts:install"]
