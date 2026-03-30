@@ -1,3 +1,6 @@
+[settings]
+http_timeout = "60s"
+
 [tools]
 dotnet = "10"
 java = "25"

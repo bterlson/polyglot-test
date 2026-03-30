@@ -121,3 +121,30 @@ polyglot-test/
 ## Cross-Platform Notes
 
 All mise tasks use language-native CLI commands (`dotnet`, `gradle`, `python`, `node`, `npm`) which work identically on Linux, macOS, and Windows. No shell-specific syntax is used.
+
+## Troubleshooting
+
+### `mise install` times out downloading Java or Gradle
+
+The JDK download is large and can time out on slower connections. The repo sets `http_timeout = "60s"` in `mise.toml`, but you can increase it further:
+
+```sh
+MISE_HTTP_TIMEOUT=120 mise install
+```
+
+Or on PowerShell:
+
+```powershell
+$env:MISE_HTTP_TIMEOUT="120"; mise install
+```
+
+If it keeps failing, try installing the problematic tools individually:
+
+```sh
+mise install java
+mise install gradle
+```
+
+### Gradle fails with "Skipped due to failed dependency"
+
+Gradle requires Java. If Java failed to install, Gradle will be skipped. Fix the Java install first, then re-run `mise install`.
