@@ -1,3 +1,6 @@
+[tools]
+dotnet = "10"
+
 [tasks.setup]
 description = "Restore .NET dependencies"
 run = "dotnet restore"

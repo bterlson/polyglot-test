@@ -1,3 +1,6 @@
+[tools]
+python = "3.13"
+
 [tasks.setup]
 description = "Install Python dependencies"
 run = ["python -m pip install pytest", "python -m pip install -e ."]

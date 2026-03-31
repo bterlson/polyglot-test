@@ -1,3 +1,7 @@
+[tools]
+java = "25"
+gradle = "latest"
+
 [tasks.setup]
 description = "Download Java/Gradle dependencies"
 run = "gradle dependencies --quiet"

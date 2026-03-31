@@ -97,6 +97,26 @@ polyglot-test/
 │   └── ts-app/               ← TypeScript app + Node built-in test runner
 ```
 
+## Working with a Single Project
+
+You can sparse-checkout just one project if you don't need the full repo:
+
+```sh
+git clone --sparse https://github.com/bterlson/polyglot-test.git
+cd polyglot-test
+git sparse-checkout set projects/java-app   # swap for any project
+```
+
+Then work with it normally:
+
+```sh
+cd projects/java-app
+mise trust && mise install
+mise run setup && mise run build && mise run test
+```
+
+Each project's `mise.toml` declares its own tool requirements, so `mise install` fetches only what that project needs.
+
 ## Mise Tasks
 
 ### Run everything

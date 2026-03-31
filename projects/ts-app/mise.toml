@@ -1,3 +1,6 @@
+[tools]
+node = "24"
+
 [tasks.install]
 description = "Install dependencies"
 run = "npm install"
